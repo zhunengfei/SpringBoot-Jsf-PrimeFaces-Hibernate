@@ -17,12 +17,39 @@
 			<p:growl for="errors" showDetail="true" autoUpdate="true"/>
 		</div>
 		<div class="ui-g-12">
-			<p:toolbar>
-				<f:facet name="left">
-					<p:button href="/" value="Liste Produits" />
-					<p:button href="/product" value="Ajouter Produit" />
-				</f:facet>
-			</p:toolbar>
+			<p:megaMenu orientation="horizontal" style="margin-top:20px">
+			    <p:submenu label="Manager" icon="ui-icon-check">
+			        <p:column>
+			            <p:submenu label="TV.1">
+			                <p:menuitem value="TV.1.1" url="#" />
+			                <p:menuitem value="TV.1.2" url="#" />
+			            </p:submenu>
+			            <p:submenu label="TV.2">
+			                <p:menuitem value="TV.2.1" url="#" />
+			                <p:menuitem value="TV.2.2" url="#" />
+			                <p:menuitem value="TV.2.3" url="#" />
+			            </p:submenu>
+			        </p:column>
+			 
+			    </p:submenu>
+			 
+			    <p:submenu label="Admin" icon="ui-icon-document">
+			        <p:column>
+			            <p:submenu label="Produit">
+			                <p:menuitem value="Liste Produit" url="/" />
+			                <p:menuitem value="Ajouter Produit" url="/product" />
+			            </p:submenu>
+			            <p:submenu label="User">
+			                <p:menuitem value="Liste Users" url="/userlist" />
+			                <p:menuitem value="Ajouter User" url="userform" />
+			            </p:submenu>
+			            <p:submenu label="Role">
+			                <p:menuitem value="Liste Roles" url="rolelist" />
+			            </p:submenu>
+			        </p:column>
+			    </p:submenu>
+			    <p:menuitem value="Sign up" url="/" icon="ui-icon-close" />
+			</p:megaMenu>
 		</div>
 		<div class="ui-g-12">
 			<ui:insert name="content">Default content</ui:insert>

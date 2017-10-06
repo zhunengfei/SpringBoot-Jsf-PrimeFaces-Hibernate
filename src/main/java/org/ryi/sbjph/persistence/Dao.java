@@ -53,4 +53,11 @@ public class Dao{
       final Criteria crit = session.createCriteria(type);
       return crit.list();
     }
+    
+    public <T> List<T> getListFromQuery(String queryName) {
+        final Session session = sessionFactory.getCurrentSession();
+        List<T> list = session.getNamedQuery(queryName).list();
+        return list;
+      }
+    
 }
