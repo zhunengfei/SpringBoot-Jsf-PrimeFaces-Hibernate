@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,10 +18,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "sys_users")
-@NamedQuery(name = "SysUsers.findAllUsers", 
-query = "from SysUsers as u inner join fetch u.sysUserRoleses")
-
-
+@NamedQueries({
+@NamedQuery(name = "SysUsers.findAllUsers", query = "from SysUsers as u inner join fetch u.sysUserRoleses"),
+@NamedQuery(name = "SysUsers.findByUserName", query = "from SysUsers where username=?")}
+)
 public class SysUsers  {
 
 	private String username;
@@ -65,10 +66,9 @@ public class SysUsers  {
 	}
 
 	@Column(name = "enabled", nullable = false)
-	public boolean getEnabled() {
-		return this.enabled;
+	public boolean isEnabled() {
+		return enabled;
 	}
-
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}

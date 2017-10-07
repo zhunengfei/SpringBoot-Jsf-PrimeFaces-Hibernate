@@ -31,7 +31,7 @@ public class UserController {
 	}
 	
 	public void addMessage() {
-        String summary = sysUsers.getEnabled() ? "Checked" : "Unchecked";
+        String summary = sysUsers.isEnabled() ? "Checked" : "Unchecked";
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
     }
 }

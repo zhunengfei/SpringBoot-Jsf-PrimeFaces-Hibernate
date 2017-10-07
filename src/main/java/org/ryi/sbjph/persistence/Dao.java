@@ -1,5 +1,6 @@
 package org.ryi.sbjph.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -58,6 +59,19 @@ public class Dao{
         final Session session = sessionFactory.getCurrentSession();
         List<T> list = session.getNamedQuery(queryName).list();
         return list;
+      }
+    
+    public <T>  T getListFromQueryWithParam(String queryName, String name, Object val) {
+        final Session session = sessionFactory.getCurrentSession();
+        List<T> entite = new ArrayList<T>();
+		entite = session.createQuery("from User where username=?")
+			.setParameter(0, val)
+			.list();
+		if (entite.size() > 0) {
+			return entite.get(0);
+		} else {
+			return null;
+		}
       }
     
 }
