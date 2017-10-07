@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sys_users")
 @NamedQuery(name = "SysUsers.findAllUsers", 
-query = "from SysUsers as u inner join fetch u.sysUserRoleses")
+query = "from SysUsers as u inner join fetch u.sysRoles")
 
 
 public class SysUsers  {
@@ -26,7 +26,7 @@ public class SysUsers  {
 	private String username;
 	private String password;
 	private boolean enabled;
-	private Set<SysUserRoles> sysUserRoleses = new HashSet<SysUserRoles>(0);
+	private Set<SysRoles> sysRoles = new HashSet<SysRoles>(0);
 
 	public SysUsers() {
 	}
@@ -38,11 +38,11 @@ public class SysUsers  {
 	}
 
 	public SysUsers(String username, String password, boolean enabled,
-			Set<SysUserRoles> sysUserRoleses) {
+			Set<SysRoles> sysRoles) {
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
-		this.sysUserRoleses = sysUserRoleses;
+		this.sysRoles = sysRoles;
 	}
 
 	@Id
@@ -73,13 +73,13 @@ public class SysUsers  {
 		this.enabled = enabled;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sysUsers")
-	public Set<SysUserRoles> getSysUserRoleses() {
-		return this.sysUserRoleses;
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "sysUsers")
+	public Set<SysRoles> getSysRoles() {
+		return this.sysRoles;
 	}
 
-	public void setSysUserRoleses(Set<SysUserRoles> sysUserRoleses) {
-		this.sysUserRoleses = sysUserRoleses;
+	public void setSysRoles(Set<SysRoles> sysRoles) {
+		this.sysRoles = sysRoles;
 	}
 
 }
