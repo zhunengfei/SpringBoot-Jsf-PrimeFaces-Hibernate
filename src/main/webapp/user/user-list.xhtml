@@ -21,12 +21,6 @@
 						<h:outputText value="#{user.enabled}">
 						</h:outputText>
 					</p:column>
-					<p:column headerText="Roles List">
-					    <p:dataList  value="#{user.sysUserRoleses}" var="role" itemType="none">
-					        #{role.role}
-					    </p:dataList>
-					</p:column>
-
 					<p:column>
 						<f:facet name="header">Action</f:facet>
 						<h:commandButton id="delete-button"

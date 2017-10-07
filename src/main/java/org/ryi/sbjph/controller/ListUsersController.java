@@ -29,7 +29,8 @@ public class ListUsersController {
 	@IgnorePostback
 	@Transactional(readOnly = true)
 	public void loadData() {
-		users = dao.getListFromQuery("SysUsers.findAllUsers");
+		//users = dao.getListFromQuery("SysUsers.findAllUsers");
+		users = dao.getAll(SysUsers.class);
 	}
 
 	public List<SysUsers> getUsers() {

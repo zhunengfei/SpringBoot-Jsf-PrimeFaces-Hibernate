@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: SpringBoot-Jsf-PrimeFaces-Hibernate
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Rached
+Built-By: MAGNUSS
 Implementation-Vendor-Id: org.ryi
-Build-Jdk: 1.8.0_102
+Build-Jdk: 1.8.0_71
 Implementation-URL: http://projects.spring.io/spring-boot/SpringBoot-J
  sf-PrimeFaces-Hibernate/
 Created-By: Maven Integration for Eclipse
